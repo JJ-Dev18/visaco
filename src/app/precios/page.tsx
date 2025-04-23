@@ -3,7 +3,6 @@
 import FAQ from "@/components/home/Faq"
 import Footer from "@/components/home/Footer"
 import Navbar from "@/components/home/Navbar"
-import PricingCard from "@/components/home/PricingCard"
 import {
     Box,
     Button,
@@ -52,42 +51,7 @@ import {
                 </Heading>
   
                 <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} w="full">
-                  <PricingCard
-                    title="Consultoría Básica"
-                    price="300.000"
-                    description="Ideal para consultas puntuales y asesoramiento inicial"
-                    features={[
-                      "Consulta inicial (1 hora)",
-                      "Evaluación de caso",
-                      "Recomendaciones básicas",
-                      "Seguimiento por email",
-                    ]}
-                  />
-                  <PricingCard
-                    title="Asesoría Completa"
-                    price="800.000"
-                    description="Solución integral para procesos legales estándar"
-                    features={[
-                      "3 consultas personalizadas",
-                      "Elaboración de documentos",
-                      "Representación básica",
-                      "Seguimiento telefónico",
-                      "Informe de avances",
-                    ]}
-                    highlighted={true}
-                  />
-                  <PricingCard
-                    title="Servicio Premium"
-                    price="1.500.000"
-                    description="Atención prioritaria y gestión completa de casos complejos"
-                    features={[
-                      "Consultas ilimitadas",
-                      "Elaboración de todos los documentos",
-                      "Representación completa",
-                      "Atención prioritaria 24/7",
-                      "Informes detallados semanales",
-                    ]}
-                  />
+                 
                 </SimpleGrid>
               </VStack>
   
