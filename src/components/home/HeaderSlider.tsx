@@ -27,7 +27,7 @@ const slides: SlideProps[] = [
   },
   {
     image: "/images/home/slider/slider3.png", // Reemplazar con la tercera imagen del slider
-    link: "/areas-practica"
+    link: "/servicios"
   },
   {
     image: "/images/home/slider/slider4.png", // Reemplazar con la cuarta imagen del slider

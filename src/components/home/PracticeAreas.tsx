@@ -11,6 +11,7 @@ import {
   VStack,
   Icon,
   Link,
+  Button,
 } from "@chakra-ui/react"
 import NextLink from "next/link"
 import { 
@@ -21,6 +22,7 @@ import {
   Globe, 
   LifeBuoy 
 } from "lucide-react"
+import { useRouter } from 'next/router'
 
 interface PracticeAreaProps {
   title: string
@@ -75,6 +77,8 @@ export default function UpdatedPracticeAreas() {
       color: "#1f3e5a",
     },
   ]
+
+  const router = useRouter()
 
   return (
     <Box as="section" py={16} bg="#f5f8fa">
@@ -138,11 +142,11 @@ export default function UpdatedPracticeAreas() {
             ))}
           </SimpleGrid>
           
-          <Box textAlign="center" mt={8}>
+          <Button textAlign="center" mt={8} onClick={() => router.push('/servicios')}>
             <Text color="gray.600">
               Ver Más
             </Text>
-          </Box>
+          </Button>
         </VStack>
       </Container>
     </Box>

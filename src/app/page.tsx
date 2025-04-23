@@ -24,7 +24,7 @@ export default function HomePage() {
       <HeaderSlider />
        <AttorneyInfo/>
   
-      <PracticeAreas />
+      {/* <PracticeAreas /> */}
       <YouTubeVideos/>
 
       <Testimonials /> 
