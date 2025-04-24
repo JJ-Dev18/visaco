@@ -1,11 +1,26 @@
 "use client"; 
 
+import MapEmbed from "@/components/contacto/MapEmbed"
+import WhatsAppButton from "@/components/contacto/WhatsappButton"
 import ContactForm from "@/components/home/ContactForm"
 import Footer from "@/components/home/Footer"
 import Navbar from "@/components/home/Navbar"
-import { Box, Button, Container, Flex, Heading, Icon, Link, SimpleGrid, Text, VStack, HStack } from "@chakra-ui/react"
-import { ArrowLeft, Clock, Mail, MapPin, Phone } from "lucide-react"
 
+
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Text,
+  VStack,
+  HStack,
+  Icon,
+  Button,
+  SimpleGrid,
+} from "@chakra-ui/react"
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react"
+import Link from "next/link"
 
 export default function ContactPage() {
   return (
@@ -13,10 +28,16 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <Box as="section" bg="linear-gradient(to right, #2B6CB0, #4299E1)" color="white" py={{ base: 12, md: 20 }}>
+      <Box
+        as="section"
+        bg="linear-gradient(to right, #2B6CB0, #4299E1)"
+        color="white"
+        py={{ base: 10, md: 16 }}
+        position="relative"
+      >
         <Container maxW="container.xl">
-          <VStack spacing={6} textAlign="center">
-            <Heading as="h1" size="2xl">
+          <VStack spacing={4} textAlign="center">
+            <Heading as="h1" size="2xl" fontWeight="bold">
               Contáctenos
             </Heading>
             <Text fontSize="xl" maxW="container.md">
@@ -26,172 +47,144 @@ export default function ContactPage() {
         </Container>
       </Box>
 
-      {/* Contact Information */}
-      <Box as="section" py={16}>
+      {/* Contact Info Cards */}
+      <Box as="section" py={16} bg="white">
         <Container maxW="container.xl">
-          <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={10}>
-            <VStack align="flex-start" spacing={10}>
-              <VStack align="flex-start" spacing={4}>
-                <Heading as="h2" size="xl">
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
+            <Flex
+              direction="column"
+              align="center"
+              justify="center"
+              bg="blue.50"
+              p={8}
+              borderRadius="lg"
+              textAlign="center"
+              height="100%"
+            >
+              <Flex align="center" justify="center" bg="blue.100" w={16} h={16} borderRadius="full" mb={4}>
+                <Icon as={MapPin} boxSize={8} color="blue.600" />
+              </Flex>
+              <Heading as="h3" size="md" mb={2}>
+                DIRECCIÓN
+              </Heading>
+              <Text>5820 Blue Lagoon Dr, Miami, FL 33126</Text>
+            </Flex>
+
+            <Flex
+              direction="column"
+              align="center"
+              justify="center"
+              bg="blue.50"
+              p={8}
+              borderRadius="lg"
+              textAlign="center"
+              height="100%"
+            >
+              <Flex align="center" justify="center" bg="blue.100" w={16} h={16} borderRadius="full" mb={4}>
+                <Icon as={Phone} boxSize={8} color="blue.600" />
+              </Flex>
+              <Heading as="h3" size="md" mb={2}>
+                CONTÁCTENOS
+              </Heading>
+              <Text>1-888-578-2276</Text>
+              <Link href="tel:18885782276" passHref>
+                <Button variant="link" colorScheme="blue" mt={2}>
+                  Llamar ahora
+                </Button>
+              </Link>
+            </Flex>
+
+            <Flex
+              direction="column"
+              align="center"
+              justify="center"
+              bg="blue.50"
+              p={8}
+              borderRadius="lg"
+              textAlign="center"
+              height="100%"
+            >
+              <Flex align="center" justify="center" bg="blue.100" w={16} h={16} borderRadius="full" mb={4}>
+                <Icon as={Clock} boxSize={8} color="blue.600" />
+              </Flex>
+              <Heading as="h3" size="md" mb={2}>
+                HORARIO
+              </Heading>
+              <Text>Lunes a viernes 8:00AM a 4:30PM (EST)</Text>
+              <Text>Sábados 8:00AM a 12:00PM (EST)</Text>
+            </Flex>
+          </SimpleGrid>
+        </Container>
+      </Box>
+
+      {/* Map and Form Section */}
+      <Box as="section" py={16} bg="gray.50">
+        <Container maxW="container.xl">
+          <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12}>
+            <VStack align="flex-start" spacing={8}>
+              <Heading as="h2" size="xl">
+                Nuestra Ubicación
+              </Heading>
+              
+              {/* Map Component */}
+              <MapEmbed 
+                address="5820 Blue Lagoon Dr, Miami, FL 33126"
+                height="400px"
+              />
+
+              <Box w="full">
+                <Heading as="h3" size="md" mb={4}>
                   Información de Contacto
                 </Heading>
-                <Text fontSize="lg" color="gray.600">
-                  Utilice cualquiera de estos canales para comunicarse con nuestro equipo.
-                </Text>
-              </VStack>
-
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8} w="full">
-                <Box
-                  p={6}
-                  borderRadius="lg"
-                  borderWidth="1px"
-                  borderColor="gray.200"
-                  _hover={{ boxShadow: "md", borderColor: "blue.200" }}
-                  transition="all 0.3s"
-                >
-                  <VStack align="flex-start" spacing={4}>
-                    <Flex align="center" justify="center" bg="blue.50" w={12} h={12} borderRadius="full">
-                      <Icon as={MapPin} boxSize={5} color="blue.500" />
-                    </Flex>
-                    <Box>
-                      <Text fontWeight="bold" fontSize="lg">
-                        Dirección
-                      </Text>
-                      <Text color="gray.600">Calle 123 #45-67</Text>
-                      <Text color="gray.600">Edificio Legal, Piso 5</Text>
-                      <Text color="gray.600">Bogotá, Colombia</Text>
-                    </Box>
-                  </VStack>
-                </Box>
-
-                <Box
-                  p={6}
-                  borderRadius="lg"
-                  borderWidth="1px"
-                  borderColor="gray.200"
-                  _hover={{ boxShadow: "md", borderColor: "blue.200" }}
-                  transition="all 0.3s"
-                >
-                  <VStack align="flex-start" spacing={4}>
-                    <Flex align="center" justify="center" bg="blue.50" w={12} h={12} borderRadius="full">
-                      <Icon as={Phone} boxSize={5} color="blue.500" />
-                    </Flex>
-                    <Box>
-                      <Text fontWeight="bold" fontSize="lg">
-                        Teléfono
-                      </Text>
-                      <Text color="gray.600">+57 (1) 123 4567</Text>
-                      <Text color="gray.600">+57 300 123 4567 (WhatsApp)</Text>
-                    </Box>
-                  </VStack>
-                </Box>
-
-                <Box
-                  p={6}
-                  borderRadius="lg"
-                  borderWidth="1px"
-                  borderColor="gray.200"
-                  _hover={{ boxShadow: "md", borderColor: "blue.200" }}
-                  transition="all 0.3s"
-                >
-                  <VStack align="flex-start" spacing={4}>
-                    <Flex align="center" justify="center" bg="blue.50" w={12} h={12} borderRadius="full">
-                      <Icon as={Mail} boxSize={5} color="blue.500" />
-                    </Flex>
-                    <Box>
-                      <Text fontWeight="bold" fontSize="lg">
-                        Email
-                      </Text>
-                      <Text color="gray.600">info@visaco.co</Text>
-                      <Text color="gray.600">soporte@visaco.co</Text>
-                    </Box>
-                  </VStack>
-                </Box>
-
-                <Box
-                  p={6}
-                  borderRadius="lg"
-                  borderWidth="1px"
-                  borderColor="gray.200"
-                  _hover={{ boxShadow: "md", borderColor: "blue.200" }}
-                  transition="all 0.3s"
-                >
-                  <VStack align="flex-start" spacing={4}>
-                    <Flex align="center" justify="center" bg="blue.50" w={12} h={12} borderRadius="full">
-                      <Icon as={Clock} boxSize={5} color="blue.500" />
-                    </Flex>
-                    <Box>
-                      <Text fontWeight="bold" fontSize="lg">
-                        Horario de Atención
-                      </Text>
-                      <Text color="gray.600">Lunes a Viernes</Text>
-                      <Text color="gray.600">8:00 AM - 6:00 PM</Text>
-                    </Box>
-                  </VStack>
-                </Box>
-              </SimpleGrid>
-
-              <Box w="full" h="300px" borderRadius="lg" overflow="hidden" borderWidth="1px" borderColor="gray.200">
-                <Box
-                  as="iframe"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.39280650613!2d-74.24789682500001!3d4.648617349999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2zQm9nb3TDoSwgQ29sb21iaWE!5e0!3m2!1sen!2sus!4v1650000000000!5m2!1sen!2sus"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Ubicación de VisaCo"
-                />
+                
+                <VStack spacing={4} align="flex-start">
+                  <HStack>
+                    <Icon as={MapPin} color="blue.500" />
+                    <Text>5820 Blue Lagoon Dr, Miami, FL 33126</Text>
+                  </HStack>
+                  
+                  <HStack>
+                    <Icon as={Phone} color="blue.500" />
+                    <Text>1-888-578-2276</Text>
+                  </HStack>
+                  
+                  <HStack>
+                    <Icon as={Mail} color="blue.500" />
+                    <Text>info@visaco.co</Text>
+                  </HStack>
+                  
+                  <HStack>
+                    <Icon as={Clock} color="blue.500" />
+                    <Text>Lunes a viernes 8:00AM a 4:30PM (EST)</Text>
+                  </HStack>
+                  
+                  <HStack>
+                    <Box w={6}></Box>
+                    <Text>Sábados 8:00AM a 12:00PM (EST)</Text>
+                  </HStack>
+                </VStack>
               </Box>
             </VStack>
 
             <Box>
-              <VStack align="flex-start" spacing={6} mb={6}>
-                <Heading as="h2" size="xl">
-                  Envíenos un Mensaje
-                </Heading>
-                <Text fontSize="lg" color="gray.600">
-                  Complete el formulario y nos pondremos en contacto con usted lo antes posible.
-                </Text>
-              </VStack>
-
-              <Box bg="white" p={8} borderRadius="lg" boxShadow="md" borderWidth="1px" borderColor="gray.200">
+              <Heading as="h2" size="xl" mb={8}>
+                Formulario de Contacto
+              </Heading>
+              <Box bg="white" p={8} borderRadius="lg" boxShadow="md">
                 <ContactForm />
               </Box>
             </Box>
           </SimpleGrid>
-
-          <Box mt={16}>
-            <VStack spacing={8} align="center">
-              <Heading as="h3" size="lg" textAlign="center">
-                Atención Personalizada
-              </Heading>
-
-              <Text fontSize="lg" textAlign="center" maxW="container.md">
-                Nuestro equipo de asesores legales está listo para atender sus consultas y brindarle la mejor
-                orientación para sus necesidades específicas.
-              </Text>
-
-              <HStack spacing={4}>
-                <Button colorScheme="blue" size="lg" as={Link} href="/precios">
-                  Ver Nuestros Servicios
-                </Button>
-                <Button variant="outline" colorScheme="blue" size="lg" as={Link} href="/">
-                  Conocer Más
-                </Button>
-              </HStack>
-            </VStack>
-          </Box>
-
-          <Button leftIcon={<ArrowLeft />} variant="ghost" mt={10} as={Link} href="/">
-            Volver al Inicio
-          </Button>
         </Container>
       </Box>
+
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton 
+        phoneNumber="+573001234567" 
+        message="Hola, estoy interesado en los servicios legales de VisaCo."
+      />
 
       <Footer />
     </Box>
   )
 }
-

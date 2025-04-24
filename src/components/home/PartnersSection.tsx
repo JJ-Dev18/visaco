@@ -21,42 +21,42 @@ export default function PartnersSection() {
   const partners: PartnerProps[] = [
     {
       name: "CNN en Español",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/cnn.png",
       width: 160,
     },
     {
       name: "Despierta América",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/despierta.png",
       width: 170,
     },
     {
       name: "Telemundo",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/telemundo.png",
       width: 180,
     },
     {
       name: "Primer Impacto",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/primer.png",
       width: 170,
     },
     {
       name: "Sábado Gigante",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/sabado-gigante_1.png",
       width: 160,
     },
     {
       name: "American Immigration Lawyers Association",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/aila.jpg",
       width: 180,
     },
     {
       name: "Better Business Bureau",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/bbb.png",
       width: 160,
     },
     {
       name: "Hoy Día",
-      logo: "https://via.placeholder.com/200x80",
+      logo: "/images/partners/hoydia.png",
       width: 160,
     },
   ]

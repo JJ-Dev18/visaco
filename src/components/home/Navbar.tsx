@@ -149,9 +149,9 @@ export default function Navbar() {
               <NextLink href="/" passHref>
                 <Link fontWeight="medium">Inicio</Link>
               </NextLink>
-              {/* <NextLink href="/nosotros" passHref>
+              <NextLink href="/nosotros" passHref>
                 <Link fontWeight="medium">Nosotros</Link>
-              </NextLink> */}
+              </NextLink>
               <NextLink href="/servicios" passHref>
                 <Link fontWeight="medium">Áreas de Práctica</Link>
               </NextLink>
@@ -164,9 +164,9 @@ export default function Navbar() {
               <NextLink href="/preguntas" passHref>
                 <Link fontWeight="medium">Preguntas</Link>
               </NextLink>
-              {/* <NextLink href="/contactenos" passHref>
+              <NextLink href="/contacto" passHref>
                 <Link fontWeight="medium">Contáctenos</Link>
-              </NextLink> */}
+              </NextLink>
               <NextLink href="/consulta" passHref>
                 <Link 
                   bg="#ff5722" 
@@ -191,9 +191,9 @@ export default function Navbar() {
               <NextLink href="/" passHref>
                 <Link py={2} fontWeight="medium">Inicio</Link>
               </NextLink>
-              {/* <NextLink href="/nosotros" passHref>
+              <NextLink href="/nosotros" passHref>
                 <Link py={2} fontWeight="medium">Nosotros</Link>
-              </NextLink> */}
+              </NextLink>
               <NextLink href="/areas-practica" passHref>
                 <Link py={2} fontWeight="medium">Áreas de Práctica</Link>
               </NextLink>
@@ -206,9 +206,9 @@ export default function Navbar() {
               <NextLink href="/preguntas" passHref>
                 <Link py={2} fontWeight="medium">Preguntas</Link>
               </NextLink>
-              {/* <NextLink href="/contactenos" passHref>
+              <NextLink href="/contacto" passHref>
                 <Link py={2} fontWeight="medium">Contáctenos</Link>
-              </NextLink> */}
+              </NextLink>
               <NextLink href="/consulta" passHref>
                 <Link 
                   bg="#ff5722" 
