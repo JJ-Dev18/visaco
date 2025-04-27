@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Providers } from '@/components/ui/Provider';
+import EPaycoScript from '@/components/epayco/EpaycoIntegration';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <div >
           <Providers>{children}</Providers>
+          <EPaycoScript/>
         </div>
       </body>
     </html>

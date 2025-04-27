@@ -93,7 +93,7 @@ export default function ConsultaPage() {
                   </Box>
                   <Button
                     as={Link}
-                    href="/contacto"
+                    href="/detalle-consulta?type=regular"
                     colorScheme="blue"
                     size="lg"
                     width="full"
@@ -153,7 +153,7 @@ export default function ConsultaPage() {
                   </Box>
                   <Button
                     as={Link}
-                    href="/contacto"
+                    href="/detalle-consulta?type=empleo"
                     colorScheme="blue"
                     size="lg"
                     width="full"
@@ -207,7 +207,7 @@ export default function ConsultaPage() {
                   </Box>
                   <Button
                     as={Link}
-                    href="/contacto"
+                   href="/detalle-consulta?type=internacional"
                     colorScheme="blue"
                     size="lg"
                     width="full"
