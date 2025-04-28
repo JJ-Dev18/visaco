@@ -1,7 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useSearchParams } from "next/navigation"
+import { useEffect, useState, Suspense } from "react"
 import {
   Box,
   Button,
@@ -20,6 +19,8 @@ import {
   Alert,
   AlertIcon,
   useToast,
+  Spinner,
+  Center
 } from "@chakra-ui/react"
 import { ArrowRight, Check, Clock, Shield, FileText } from "lucide-react"
 import Navbar from "@/components/home/Navbar"
@@ -28,11 +29,14 @@ import WhatsAppButton from "@/components/contacto/WhatsappButton"
 
 import dynamic from "next/dynamic"
 import { useEPayco } from "@/components/epayco/EpaycoIntegration"
+
 const MessageSquare = dynamic(() => import("lucide-react").then((mod) => mod.MessageSquare), { ssr: false })
 const Briefcase = dynamic(() => import("lucide-react").then((mod) => mod.Briefcase), { ssr: false })
 const Globe = dynamic(() => import("lucide-react").then((mod) => mod.Globe), { ssr: false })
 
-export default function ConsultationDetailPage() {
+// Componente que usa useSearchParams
+function ConsultationContent() {
+  const { useSearchParams } = require("next/navigation")
   const searchParams = useSearchParams()
   const toast = useToast()
   const [isLoading, setIsLoading] = useState(false)
@@ -117,18 +121,17 @@ export default function ConsultationDetailPage() {
 
   // Configure ePayco integration
   const { openCheckout } = useEPayco({
-    publicKey: process.env.EPAYCO_PUBLIC_KEY || 'p_test_key', // Reemplazar con la variable de entorno
+    publicKey: process.env.NEXT_PUBLIC_EPAYCO_PUBLIC_KEY || 'p_test_key', // Cambiado a NEXT_PUBLIC_
     test: true, // false para producción
     name: consultation.title,
-    
     description: `Pago por ${consultation.title} con VisaCo`,
     amount: consultation.price,
     currency: 'cop',
     country: 'co',
     lang: 'es',
     external: 'false',
-    response: `${window.location.origin}/pago-respuesta`,
-    confirmation: `${window.location.origin}/api/payment-confirmation`,
+    response: `${typeof window !== 'undefined' ? window.location.origin : ''}/pago-respuesta`,
+    confirmation: `${typeof window !== 'undefined' ? window.location.origin : ''}/api/payment-confirmation`,
   })
   
   // Function to handle payment with ePayco
@@ -161,14 +164,9 @@ export default function ConsultationDetailPage() {
       setIsLoading(false)
     }
   }
-  
-  // Import the required icons dynamically
 
-  
   return (
-    <Box>
-      <Navbar />
-      
+    <>
       {/* Hero Section */}
       <Box
         as="section"
@@ -346,6 +344,26 @@ export default function ConsultationDetailPage() {
         phoneNumber="+573001234567" 
         message={`Hola, estoy interesado en la ${consultation.title} con VisaCo.`}
       />
+    </>
+  )
+}
+
+// Componente principal
+export default function ConsultationDetailPage() {
+  return (
+    <Box>
+      <Navbar />
+      
+      <Suspense fallback={
+        <Center py={16}>
+          <VStack>
+            <Spinner size="xl" color="blue.500" thickness="4px" />
+            <Text mt={4}>Cargando detalles de la consulta...</Text>
+          </VStack>
+        </Center>
+      }>
+        <ConsultationContent />
+      </Suspense>
       
       <Footer />
     </Box>
